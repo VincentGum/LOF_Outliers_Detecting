@@ -5,7 +5,7 @@ This is a simple class for detecting outliers using LOF
     'lof = LOF.LOF(DATA, k=2, dist_mode=1, top=1)'
 
     DATA: a 'np.array' data set, having each row for a sample and each col for a attribute
-    k: size of neighborhoo
+    k: size of neighborhood
     dist_mode: 1 for Manhattan; 2 for Euclidean
     top: the number of outliers you want to detect
 
