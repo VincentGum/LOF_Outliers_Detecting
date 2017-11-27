@@ -5,7 +5,6 @@
 @File    : LOF.py
 """
 import numpy as np
-from decimal import Decimal
 
 
 class LOF():
