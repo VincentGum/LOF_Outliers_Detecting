@@ -21,7 +21,6 @@ This is a simple class for detecting outliers using LOF
 
 
             'lof.dist' for distance between all the samples;
-            'lof.k_NN' for all the neighbors for every samples, give a dictionary, sample index for keys,
-                       lists containing neighbors for values;
+            'lof.k_NN' for all the neighbors for every samples, give a dictionary, sample index for keys, lists containing neighbors for values;
             'lof.LOF'  for all the LOF for all the samples
             'lof.OUTLIERS_SET' for all outliers you want, give a dictionary, sample index for keys and LOF for values;
