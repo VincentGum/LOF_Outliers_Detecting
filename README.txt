@@ -3,13 +3,11 @@ This is a simple class for detecting outliers using LOF
 1, Initiate a LOF class like this:
 
     'lof = LOF.LOF(DATA, k=2, dist_mode=1, top=1)'
-                    |     |           |_____  |______ the number of
-                    /     |                 |  outliers you want to detect
-                   / size of neighborhood   |
-                  /                         |
-     a 'np.array' data set,             1 for Manhattan
-     having each row for a sample          2 for Euclidean
-     and each col for a attribute
+
+    DATA: a 'np.array' data set, having each row for a sample and each col for a attribute
+    k: size of neighborhoo
+    dist_mode: 1 for Manhattan; 2 for Euclidean
+    top: the number of outliers you want to detect
 
 2, After initiating the lof class, detect the outliers like this:
 
