@@ -8,34 +8,28 @@ import numpy as np
 
 
 class LOF():
-    DATA = np.array([1, 1])
-    sample_number = 0  # numbers of all the samples
-    k = 0
-    dist_mode = 0  # 1 for Manhattan dist and 2 for Euclidean dist
-    top = 0  # number of outliers you want to find out
 
-    dist = np.array([1, 1])
-    dist_k = np.array([1, 1])
-    k_NN = {}
-    lrd_k = np.array([1,1])
-    LOF = []  # LOF for each point
-    LOF_dict = {}  # having all the samples' indexs as keys and their LOF as values
-    OUTLIERS_SET = {}  # having all the outliers, taking ontliers' indexs as keys and their LOF as values
-    rd = []
-
-    def __init__(self, DATA, k=2, dist_mode=1, top=1):
+    def __init__(self, data, k=2, dist_mode=1, top=1):
         """
         initial the class and input the parameter
-        :param DATA: the points in which we want to handle and find out the outliers
+        :param data: the points in which we want to handle and find out the outliers
         :param k: parameter k
         :param dist_mode: the way you want to calculate the distance, including Manhattan dist for Euclidean dist
         :param top: the numbers of outliers you want to output(k must be not exceeding the number of data points)
         """
-        self.DATA = DATA
+        self.DATA = data
         self.k = k
         self.dist_mode = dist_mode
         self.top = top
-        self.sample_number = DATA.shape[0]
+        self.sample_number = data.shape[0]
+
+        self.dist = np.array([1, 1])
+        self.dist_k = np.array([1, 1])
+        self.k_NN = {}
+        self.lrd_k = np.array([1, 1])
+        self.LOF = []  # LOF for each point
+        self.LOF_dict = {}  # having all the samples' indexs as keys and their LOF as values
+        self.OUTLIERS_SET = {}  # having all the outliers, taking ontliers' indexs as keys and their LOF as values
 
     def l1_dist(self, point_1, point_2):
         """
@@ -134,7 +128,6 @@ class LOF():
                 down += self.reachdist_k(o_, o)
             up = len(self.k_NN[o])
             temp.append(up / down)
-            self.rd.append(down)
 
         self.lrd_k = np.array(temp)
 
